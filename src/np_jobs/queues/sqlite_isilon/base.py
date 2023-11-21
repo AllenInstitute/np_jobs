@@ -288,7 +288,7 @@ class SqliteIsilonJobQueue(collections.abc.MutableMapping):
         """Whether the job has started processing, but not yet finished."""
         job = self[session_or_job]
         return (
-            job.started
+            bool(job.started)
             and not job.finished
             and not job.error
         )
